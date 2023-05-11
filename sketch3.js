@@ -1,5 +1,6 @@
 let points = [];
 let noiseVal = [];
+let noiseScale = 0.003;
 let mult = 0.005;
 var t;
 
@@ -11,7 +12,7 @@ function setup() {
   space = width / density;
   for (x = 0; x < width; x += space) {
     for (y = 0; y < height; y += space) {
-      noiseVal = noise(x, y) * 2;
+      noiseVal = noise(x * noiseScale, y * noiseScale) * 20;
       let p = createVector(x + noiseVal, y + noiseVal);
       points.push(p);
     }
